@@ -73,3 +73,20 @@ footer p {
     align-content: center;
     padding-right: 10px;
 }
+
+/* search page */
+.searchPage {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+#searchForm {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+#searchForm label {
+    margin-bottom: 2px;
+}
+#searchForm input {
+    margin-bottom: 12px;
+}   

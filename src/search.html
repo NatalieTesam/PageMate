@@ -19,8 +19,23 @@
             <a href="list.html">Your List</a>
         </nav>
     </header>
-    <main>
-
+    <main class="searchPage">
+        <div id="search">
+            <form id="searchForm" >
+                <label for="author">Title or Author:</label>
+                <input type="text" id="author" placeholder="Title or Author">
+                <label for="topic">Topic:</label>
+                <input type="text" name="topic" id="topic" placeholder="Topic">
+                <label for="year">Year:</label>
+                <input type="text" name="year" id="year" placeholder="Year">
+                <label for="language">Language:</label>
+                <select name="language" id="language" required>
+                <option value="select">Select Language</option>
+                <option value="english">English</option>
+                <option value="spanish">Spanish</option>
+                </select>
+            </form>
+        </div>
     </main>
     <footer>
         <h1>Web Frontend Developement I</h1>
