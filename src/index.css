@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+
 :root {
     --pmdarkblue: #152233;
     --pmlightblue: #9DD4E8;
     --pmbrown: #885334;
     --pmbgolden: #E5C18A;
     --pmyellow: #F9EBC8;
+    --titlefont: "DM Serif Display";
 }
 
 body {
@@ -21,6 +24,7 @@ header div {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    font-family: var(--titlefont);
 }
 #pmlogo {
     width: 100px;
@@ -90,3 +94,8 @@ footer p {
 #searchForm input {
     margin-bottom: 12px;
 }   
+#searchButton {
+    display: flex;
+    margin-top: 30px;
+    justify-self: center;
+}
