@@ -14,6 +14,7 @@ async function getData() {
     }
   }
 
+// adding/removing class for nav transition
 document.addEventListener("DOMContentLoaded", () => {
   const menuButton = document.getElementById("menu");
   const navMenu = document.querySelector(".global-nav-toggle");
@@ -22,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Toggle the "show" class on the navigation menu
     navMenu.classList.toggle("show");
 
-    // Optionally, update the button's aria-expanded attribute for accessibility
     const isExpanded = navMenu.classList.contains("show");
     menuButton.setAttribute("aria-expanded", isExpanded);
   });
