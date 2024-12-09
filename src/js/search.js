@@ -1,3 +1,7 @@
+const url = "https://gutendex.com/books/"
+
+
+
 function bookTemplate() {
     return ``
 }
@@ -11,10 +15,32 @@ function renderBook(bookList) {
 // search for author or title
 function searchTitle() {
     const searchInput = document.querySelector('#author').value.toLowerCase();
-    const encodedInput = encodeURIComponent(searchInput);
+    if (searchInput.includes(" ")) {
+        const encodedInput = encodeURIComponent(searchInput);
+        getData(encodedInput);
+    } else {
+        getData(searchInput);
+    }
 
-    console.log(encodedInput)
-    `${url}?search=${encodedInput}`
+
+    // ${url}?search=${encodedInput}
   }
+
+  async function getData(input) {
+    try {
+        // const inputUrl = `${url}?search=${input}`;
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+  
+      const json = await response.json();
+      console.log(json);
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+
   
 document.querySelector('#searchButton').addEventListener("click", searchTitle);  
