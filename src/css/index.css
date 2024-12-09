@@ -1,0 +1,40 @@
+main {
+    margin: 1em;
+    padding: 1em;
+    max-width: 900px;
+    margin: auto;
+    font-size: 20px;
+}
+
+#intro {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+}
+
+#intro img {
+    max-width: 200px;
+}
+
+#intro div {
+    padding: 1em;
+    margin: 1em;
+}
+
+#intro div button {
+    padding: 1em;
+}
+
+#popularBooks {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 1em;
+}
+
+.book {
+    justify-items: center;
+}
+
+.book img {
+    max-width: 200px;
+}
