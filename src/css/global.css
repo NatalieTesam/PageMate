@@ -57,7 +57,7 @@ nav a {
 /* Footer */
 footer {
     display: flex;
-    position: absolute;
+    /* position: absolute; */
     background-color: var(--pmdarkblue);
     color: var(--pmbgolden);
     bottom: 0;
