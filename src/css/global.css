@@ -80,37 +80,6 @@ footer p {
     padding-right: 10px;
 }
 
-/* search page */
-.searchPage {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-}
-#search {
-    border-right: 2px solid var(--pmdarkblue);
-    height: 130%;
-    font-family: var(--bodyfont);
-}
-#searchForm {
-    display: flex;
-    flex-direction: column;
-    margin-top: 30px;
-}
-#searchForm label {
-    margin-bottom: 2px;
-}
-#searchForm input {
-    margin-bottom: 12px;
-    width: 170px;
-}   
-#searchForm select {
-    width: 177px;
-}
-#searchButton {
-    display: flex;
-    margin-top: 30px;
-    justify-self: center;
-}
-
 .global-nav-toggle {
     max-height: 0;
     overflow: hidden;
