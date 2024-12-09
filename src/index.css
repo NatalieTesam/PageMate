@@ -45,7 +45,6 @@ header h1 {
 }
 nav {
     text-align: center;
-    padding-bottom: 10px;
 }
 nav a {
     color: var(--pmbgolden);
@@ -111,3 +110,15 @@ footer p {
     margin-top: 30px;
     justify-self: center;
 }
+
+
+.global-nav-toggle {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s;
+  }
+  
+  .global-nav-toggle.show {
+    max-height: 200px; 
+    padding-bottom: 10px;
+  }  
