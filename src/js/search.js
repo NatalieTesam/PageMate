@@ -82,5 +82,5 @@ function searchLanguage() {
   getData(inputUrl);
 }
 
-
+document.addEventListener("DOMContentLoaded", searchTitle("popular"));
 document.querySelector('#searchButton').addEventListener("click", chooseSearch);
