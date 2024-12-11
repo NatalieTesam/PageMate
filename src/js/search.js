@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
     
+// this one
 // search books
 function bookTemplate(book) {
     const authors = book.authors?.map(author => author.name).join(", ") || "Unknown Author";
@@ -29,6 +30,7 @@ function bookTemplate(book) {
     `;
 }
 
+// this one
 function renderBook(bookList) {
     const bookContainer = document.querySelector('.bookList');
     console.log("Book List:", bookList); // Checking
@@ -36,6 +38,7 @@ function renderBook(bookList) {
     bookContainer.innerHTML = html;
 }
 
+// this one
 async function getData(inputUrl) {
     try {
         console.log("Fetching URL:", inputUrl); // Checking
@@ -46,6 +49,10 @@ async function getData(inputUrl) {
         const json = await response.json();
         console.log("API Response Results:", json.results); // Checking
         renderBook(json.results);
+        // three book limit
+        // const limitedResults = json.results.slice(0, 3);
+        // renderBook(limitedResults);
+
     } catch (error) {
         console.error(error.message);
     }
@@ -71,6 +78,7 @@ function chooseSearch() {
   }
 }
 
+// this one
 function searchTitle() {
     const searchInput = document.querySelector('#author').value.trim().toLowerCase();
     const encodedInput = encodeURIComponent(searchInput);
