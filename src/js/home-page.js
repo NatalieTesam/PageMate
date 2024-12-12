@@ -1,18 +1,4 @@
-const url = "https://gutendex.com/books/"
-
-async function getData() {
-    try {
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`Response status: ${response.status}`);
-      }
-  
-      const json = await response.json();
-      console.log(json);
-    } catch (error) {
-      console.error(error.message);
-    }
-  }
+// const url = "https://gutendex.com/books/"
 
 // adding/removing class for nav transition
 document.addEventListener("DOMContentLoaded", () => {
@@ -28,9 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
   
-
-getData();
-
 // this one
 // search books
 function bookTemplate(book) {
@@ -39,31 +22,23 @@ function bookTemplate(book) {
   return `
       <div class="book">
           <img class="bookImg" src="${book.formats['image/jpeg']}" alt="${book.title}">
-          <h2>${book.title}</h2>
+          <h3>${book.title}</h3>
           <p><strong>Author(s):</strong> ${authors}</p>
           <button id="listButton">Add to List</button>
-          <a href="${link}" target="_blank">Read Book</a>
       </div>
   `;
 }
 
 // this one
 function renderBook(bookList) {
-  const bookContainer = document.querySelector('.bookList'); //change location
+  const bookContainer = document.querySelector('#popularBooks'); //change location
   console.log("Book List:", bookList); // Checking
   const html = bookList.map(book => bookTemplate(book)).join('');
   bookContainer.innerHTML = html;
 }
 
-// this one
-function searchTitle() {
-  const searchInput = document.querySelector('#author').value.trim().toLowerCase();
-  const encodedInput = encodeURIComponent(searchInput);
-  const inputUrl = `${url}?search=${encodedInput}`;
-  getData(inputUrl);
-}
-
-async function getData(inputUrl) {
+async function getData(url) {
+  const inputUrl = "https://gutendex.com/books/" + url
   try {
       console.log("Fetching URL:", inputUrl); // Checking
       const response = await fetch(inputUrl);
@@ -82,4 +57,4 @@ async function getData(inputUrl) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", searchTitle("popular"));
+document.addEventListener("DOMContentLoaded", getData("?sort:popular"));
