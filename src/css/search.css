@@ -101,7 +101,23 @@
     margin-top: 3px;
     color: var(--pmdarkblue);
 }
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
 .book a {
+    font-family: var(--bodyfont);
+    font-size: 0.7em;
+    display: flex;
+    text-decoration: none;
+    color: var(--pmbrown);
+    padding: 0;
+}
+
+.addButton {
     font-family: var(--bodyfont);
     font-size: 0.7em;
     display: flex;
@@ -109,6 +125,8 @@
     margin-right: 2.5em;
     text-decoration: none;
     color: var(--pmbrown);
+    border: none;
+    background: none;
 }
 
 #nextButton {
@@ -125,16 +143,3 @@
     background-color: var(--pmyellow);
     border-color: var(--pmbyellow);
 }
-
-.addButton {
-    font-family: var(--bodyfont);
-    font-size: 0.7em;
-    display: flex;
-    justify-content: right;
-    margin-right: 2.5em;
-    text-decoration: none;
-    color: var(--pmbrown);
-    border: none;
-    background: none;
-}
-

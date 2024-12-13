@@ -26,8 +26,10 @@ function bookTemplate(book) {
             <img class="bookImg" src="${book.formats['image/jpeg']}" alt="${book.title}">
             <h2>${book.title}</h2>
             <p><strong>Author(s):</strong> ${authors}</p>
-            <button class="addButton" id="listButton${book.id}">Add to List</button>
-            <a href="${link}" target="_blank">Read Book</a>
+            <div class="buttons">
+                <button class="addButton" id="listButton${book.id}">Add to List</button>
+                <a href="${link}" target="_blank">Read Book</a>
+            </div>
         </div>
     `;
 }
