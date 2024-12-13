@@ -1,0 +1,21 @@
+main {
+    margin: 1em;
+    padding: 1em;
+    max-width: 1000px;
+    margin: auto;
+    font-size: 20px;
+}
+
+#savedBooks, #readBooks {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1em;
+}
+
+.book {
+    justify-items: center;
+}
+
+.book img {
+    max-width: 200px;
+}

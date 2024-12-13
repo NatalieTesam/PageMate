@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/list.css">
+    <script src="js/list.js" defer></script>
     <title>Page Mate</title>
 </head>
 <body>
@@ -13,14 +15,55 @@
             <h1>Page Mate</h1>
             <button id="menu">Menu</button>
         </div>
-        <nav>
+        <nav class="global-nav-toggle">
             <a href="index.html">Home</a>
             <a href="search.html">Search</a>
             <a href="list.html">Your List</a>
         </nav>
     </header>
     <main>
-
+        <div id="savedList">
+            <h2>Saved</h2>
+            <div id="savedBooks">
+                <div class="book">
+                    <img src="img/book_placeholder.png" alt="">
+                    <h3>Loading...</h3>
+                </div>
+                <div class="book">
+                    <img src="img/book_placeholder.png" alt="">
+                    <h3>Loading...</h3>
+                </div>
+                <div class="book">
+                    <img src="img/book_placeholder.png" alt="">
+                    <h3>Loading...</h3>
+                </div>
+                <div class="book">
+                    <img src="img/book_placeholder.png" alt="">
+                    <h3>Loading...</h3>
+                </div>
+            </div>
+        </div>
+        <div id="readList">
+            <h2>Read</h2>
+            <div id="readBooks">
+                <div class="book">
+                    <img src="img/book_placeholder.png" alt="">
+                    <h3>Loading...</h3>
+                </div>
+                <div class="book">
+                    <img src="img/book_placeholder.png" alt="">
+                    <h3>Loading...</h3>
+                </div>
+                <div class="book">
+                    <img src="img/book_placeholder.png" alt="">
+                    <h3>Loading...</h3>
+                </div>
+                <div class="book">
+                    <img src="img/book_placeholder.png" alt="">
+                    <h3>Loading...</h3>
+                </div>
+            </div>
+        </div>
     </main>
     <footer>
         <h1>Web Frontend Developement I</h1>
