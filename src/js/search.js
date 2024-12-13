@@ -1,4 +1,6 @@
 const url = "https://gutendex.com/books/";
+let currentSearchUrl = "";
+let currentPage = 1;
 
 // adding/removing class for nav transition
 document.addEventListener("DOMContentLoaded", () => {
@@ -39,10 +41,11 @@ function renderBook(bookList) {
 }
 
 // this one
-async function getData(inputUrl) {
+async function getData(inputUrl, page = 1) {
+    currentSearchUrl = inputUrl
     try {
-        console.log("Fetching URL:", inputUrl); // Checking
-        const response = await fetch(inputUrl);
+        console.log("Fetching URL:", `${inputUrl}&page=${page}`); // Checking
+        const response = await fetch(`${inputUrl}&page=${page}`);
         if (!response.ok) {
             throw new Error(`Response status: ${response.status}`);
         }
@@ -109,3 +112,14 @@ function searchLanguage() {
 
 document.addEventListener("DOMContentLoaded", searchTitle("popular"));
 document.querySelector('#searchButton').addEventListener("click", chooseSearch);
+document.querySelector('#nextButton').addEventListener('click', () => {
+    if (currentSearchUrl) {
+        currentPage++; // add page
+        getData(currentSearchUrl, currentPage); // Fetch the next page
+    } else {
+        alert("Please perform a search first!");
+    }
+});
+document.querySelector('#searchButton').addEventListener('click', () => {
+    currentPage = 1; // Reset to the first page for a new search
+});
