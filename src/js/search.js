@@ -87,9 +87,9 @@ function searchTitle() {
 }
 
 function searchTopic() {
-  const searchInput = document.querySelector('#author').value.trim().toLowerCase();
+  const searchInput = document.querySelector('#topic').value.trim().toLowerCase();
   const encodedInput = encodeURIComponent(searchInput);
-  const inputUrl = `${url}?topics=${encodedInput}`;
+  const inputUrl = `${url}?topic=${encodedInput}`;
   getData(inputUrl);
 }
 
@@ -107,5 +107,5 @@ function searchLanguage() {
   getData(inputUrl);
 }
 
-document.addEventListener("DOMContentLoaded", searchTitle("popular"));
+// document.addEventListener("DOMContentLoaded", searchTitle("popular"));
 document.querySelector('#searchButton').addEventListener("click", chooseSearch);
