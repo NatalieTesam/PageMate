@@ -112,6 +112,15 @@ function searchLanguage() {
   getData(inputUrl);
 }
 
+let myList = "";
+function addBook() {
+    const bookId = e.target.dataset.bookid;
+    myList.add(bookId);
+    console.log(myList);
+}
+
+document.querySelector('.addButton').addEventListener('click', addBook);
+
 document.addEventListener("DOMContentLoaded", searchTitle("popular"));
 document.querySelector('#searchButton').addEventListener("click", chooseSearch);
 document.querySelector('#nextButton').addEventListener('click', () => {

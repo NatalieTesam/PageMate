@@ -38,3 +38,12 @@ main {
 .book img {
     max-width: 200px;
 }
+
+#listButton {
+    font-family: var(--bodyfont);
+    font-size: 0.7em;
+    text-decoration: none;
+    color: var(--pmbrown);
+    border: none;
+    background: none;
+}
