@@ -112,14 +112,23 @@ function searchLanguage() {
   getData(inputUrl);
 }
 
-let myList = "";
-function addBook() {
-    const bookId = e.target.dataset.bookid;
-    myList.add(bookId);
-    console.log(myList);
-}
+// Initialize `myList` from local storage
+let myList = localStorage.getItem('myList') || ''; // Load from localStorage or start with an empty string
+console.log("Initial myList:", myList);
 
-document.querySelector('.addButton').addEventListener('click', addBook);
+// Function to add a book to `myList` and save to local storage
+document.querySelector('.bookList').addEventListener('click', (e) => {
+    if (e.target.classList.contains('addButton')) {
+        const bookId = e.target.id.replace('listButton', ''); // Extract the book ID
+        myList += `${bookId},`; // Append book ID to `myList` (comma-separated)
+        localStorage.setItem('myList', myList); // Save updated list to local storage
+        console.log("Updated myList:", myList);
+    }
+});
+
+// To clear or reset the list, you can use:
+// localStorage.removeItem('myList'); // Removes `myList` from storage
+// myList = ''; // Reset in memory
 
 document.addEventListener("DOMContentLoaded", searchTitle("popular"));
 document.querySelector('#searchButton').addEventListener("click", chooseSearch);
