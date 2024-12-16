@@ -17,7 +17,7 @@ async function bookTemplate(bookId) {
 async function renderBooks(bookList, location) {
   const bookContainer = document.querySelector(location); //change location
   // console.log("Book List:", bookList); // Checking
-  const html = (await Promise.all(bookList.map(async bookId => await bookTemplate(bookId)))).join();
+  const html = (await Promise.all(bookList.map(async bookId => await bookTemplate(bookId)))).join("");
   bookContainer.innerHTML = html;
 }
 
