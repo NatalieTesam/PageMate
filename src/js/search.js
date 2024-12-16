@@ -1,3 +1,5 @@
+import { addBook } from "./modules/bookList";
+
 const url = "https://gutendex.com/books/";
 let currentSearchUrl = "";
 let currentPage = 1;
@@ -22,12 +24,12 @@ function bookTemplate(book) {
     const authors = book.authors?.map(author => author.name).join(", ") || "Unknown Author";
     const link = book.formats?.['text/html'] || "#";
     return `
-        <div class="book">
+        <div class="book" bookId="${book.id}">
             <img class="bookImg" src="${book.formats['image/jpeg']}" alt="${book.title}">
             <h2>${book.title}</h2>
             <p><strong>Author(s):</strong> ${authors}</p>
             <div class="buttons">
-                <button class="addButton" id="listButton${book.id}">Add to List</button>
+                <button class="addButton" id="listButton${book.id}" bookId="${book.id}">Add to List</button>
                 <a href="${link}" target="_blank">Read Book</a>
             </div>
         </div>
@@ -120,9 +122,10 @@ console.log("Initial myList:", myList);
 document.querySelector('.bookList').addEventListener('click', (e) => {
     if (e.target.classList.contains('addButton')) {
         const bookId = e.target.id.replace('listButton', ''); // Extract the book ID
-        myList += `${bookId},`; // Append book ID to `myList` (comma-separated)
-        localStorage.setItem('myList', myList); // Save updated list to local storage
-        console.log("Updated myList:", myList);
+        addBook(bookId, "saved");
+        // myList += `${bookId},`; // Append book ID to `myList` (comma-separated)
+        // localStorage.setItem('myList', myList); // Save updated list to local storage
+        // console.log("Updated myList:", myList);
     }
 });
 
@@ -143,3 +146,4 @@ document.querySelector('#nextButton').addEventListener('click', () => {
 document.querySelector('#searchButton').addEventListener('click', () => {
     currentPage = 1; // Reset to the first page for a new search
 });
+

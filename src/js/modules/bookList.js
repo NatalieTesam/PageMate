@@ -2,7 +2,8 @@
 
 // parses the string from local storage and returns a json value
 export function getBookList() {
-    return JSON.parse(localStorage.getItem("bookList"));
+    if (JSON.parse(localStorage.getItem("booklist")));
+        return JSON.parse(localStorage.getItem("bookList"));
 }
 
 // turns the json back into a string and sets in local storage
