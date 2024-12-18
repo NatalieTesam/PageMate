@@ -48,3 +48,14 @@ export function removeBook(id, category) {
         console.log("Could not remove book, either not in list or invalid category type.")
     }
 }
+
+export function swapLists(id, CurrentCategory) {
+    if (CurrentCategory == "saved") {
+        addBook(id, "read");
+        removeBook(id, "saved");
+    }
+    if (CurrentCategory == "read") {
+        addBook(id, "saved");
+        removeBook(id, "read")
+    }
+}
