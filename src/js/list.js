@@ -47,11 +47,8 @@ function displayLists() {
 }
 
 document.querySelector('#savedBooks').addEventListener('click', (e) => {
-  console.log(e.target.classList)
     if (e.target.classList.contains('swapButton')) {
-      console.log("checked")
         const bookId = e.target.id.replace('listButton', ''); // Extract the book ID
-        console.log(bookId)
         swapLists(bookId, "saved");
     } else if (e.target.classList.contains('removeButton')) {
         const bookId = e.target.id.replace('listButton', ''); // Extract the book ID
@@ -61,10 +58,10 @@ document.querySelector('#savedBooks').addEventListener('click', (e) => {
 
 document.querySelector('#readBooks').addEventListener('click', (e) => {
   if (e.target.classList.contains('swapButton')) {
-      const bookId = e.target.id.bookId; // Extract the book ID
+      const bookId = e.target.id.replace('listButton', ''); // Extract the book ID
       swapLists(bookId, "read");
   } else if (e.target.classList.contains('removeButton')) {
-      const bookId = e.target.id.bookId // Extract the book ID
+      const bookId = e.target.id.replace('listButton', '')// Extract the book ID
       removeBook(bookId, "read");
   }
 });
