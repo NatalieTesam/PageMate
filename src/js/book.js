@@ -20,7 +20,9 @@ function getParam(param) {
             <h2>${book.title}</h2>
             <p><strong>Author(s):</strong> ${authors}</p>
             <div class="buttons">
+                <a href="../list.html" target="_blank">Back to Book List</a>
                 <a href="${link}" target="_blank">Read Book</a>
+                
             </div>
         </div>`;
   }
