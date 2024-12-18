@@ -9,7 +9,9 @@ async function bookTemplate(bookId) {
   return `<div class="book" data-id="${bookId}" data-category="saved">
     <img class="bookImg" src="${book.formats['image/jpeg']}" alt="${book.title}">
     <h3>${book.title}</h3>
-    <button id="listButton">Swap Lists</button>
+    <a href="book.html?bookId=${book.id}">More Info</a>
+    <button class="swapButton" id="listButton${book.id}" bookId=${book.id}>Swap Lists</button>
+    
   </div>
   `;
 }
@@ -43,6 +45,29 @@ function displayLists() {
   renderBooks(bookList.saved, "#savedBooks");
   renderBooks(bookList.read, "#readBooks");
 }
+
+document.querySelector('#savedBooks').addEventListener('click', (e) => {
+  console.log(e.target.classList)
+    if (e.target.classList.contains('swapButton')) {
+      console.log("checked")
+        const bookId = e.target.id.replace('listButton', ''); // Extract the book ID
+        console.log(bookId)
+        swapLists(bookId, "saved");
+    } else if (e.target.classList.contains('removeButton')) {
+        const bookId = e.target.id.replace('listButton', ''); // Extract the book ID
+        removeBook(bookId, "saved");
+    }
+});
+
+document.querySelector('#readBooks').addEventListener('click', (e) => {
+  if (e.target.classList.contains('swapButton')) {
+      const bookId = e.target.id.bookId; // Extract the book ID
+      swapLists(bookId, "read");
+  } else if (e.target.classList.contains('removeButton')) {
+      const bookId = e.target.id.bookId // Extract the book ID
+      removeBook(bookId, "read");
+  }
+});
 
 navBar();
 document.addEventListener("DOMContentLoaded", () => {
