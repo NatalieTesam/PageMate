@@ -1,4 +1,4 @@
-import { addBook } from "./modules/bookList";
+import { addBook, removeBook } from "./modules/bookList";
 
 const url = "https://gutendex.com/books/";
 let currentSearchUrl = "";
@@ -119,7 +119,18 @@ document.querySelector('.bookList').addEventListener('click', (e) => {
     if (e.target.classList.contains('addButton')) {
         const bookId = e.target.id.replace('listButton', ''); // Extract the book ID
         addBook(bookId, "saved");
+        // changes button label
+        e.target.textContent = 'Remove from list';
+        e.target.classList.remove('addButton');
+        e.target.classList.add('removeButton');
+    } else if (e.target.classList.contains('removeButton')) {
+        const bookId = e.target.id.replace('listButton', ''); // Extract the book ID
+        removeBook(bookId, "saved");
         
+        // change the button label back
+        e.target.textContent = 'Add to list';
+        e.target.classList.remove('removeButton');
+        e.target.classList.add('addButton');
     }
 });
 
