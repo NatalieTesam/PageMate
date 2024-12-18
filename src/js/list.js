@@ -1,12 +1,12 @@
 import { navBar } from "./modules/nav";
-import { getBookList } from "./modules/bookList";
+import { getBookList, swapLists } from "./modules/bookList";
 
 const myList = {saved: [1, 2, 3], read: [1, 2, 3]}
 
 async function bookTemplate(bookId) {
   const book = await getData(bookId);
   // console.log("book:", book);
-  return `<div class="book">
+  return `<div class="book" data-id="${bookId}" data-category="saved">
     <img class="bookImg" src="${book.formats['image/jpeg']}" alt="${book.title}">
     <h3>${book.title}</h3>
     <button id="listButton">Swap Lists</button>
@@ -45,7 +45,17 @@ function displayLists() {
 }
 
 navBar();
-document.addEventListener("DOMContentLoaded", displayLists);
+document.addEventListener("DOMContentLoaded", () => {
+  displayLists();
+  
+  document.body.addEventListener("click", function (event) {
+    if (event.target.classList.contains("listButton")) {
+      const bookElement = event.target.closest('.book');
+      const id = bookElement.getAttribute('data-id');
+      const currentCategory = bookElement.getAttribute('data-category');
 
-
-
+      swapLists(id, currentCategory);
+      displayLists();
+    }
+  });
+});

@@ -20,7 +20,7 @@ main {
     max-width: 200px;
 }
 
-#listButton {
+/* #listButton {
     font-family: var(--bodyfont);
     font-size: 0.7em;
     display: flex;
@@ -28,4 +28,4 @@ main {
     color: var(--pmbrown);
     border: none;
     background: none;
-}
+} */

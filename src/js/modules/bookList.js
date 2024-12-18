@@ -49,13 +49,33 @@ export function removeBook(id, category) {
     }
 }
 
-export function swapLists(id, CurrentCategory) {
-    if (CurrentCategory == "saved") {
-        addBook(id, "read");
-        removeBook(id, "saved");
+// export function swapLists(id, CurrentCategory) {
+//     if (CurrentCategory == "saved") {
+//         addBook(id, "read");
+//         removeBook(id, "saved");
+//     }
+//     if (CurrentCategory == "read") {
+//         addBook(id, "saved");
+//         removeBook(id, "read")
+//     }
+// }
+export function swapLists(id, currentCategory) {
+    const booklist = getBookList();
+    id = parseInt(id); // Ensure id is a number
+
+    if (currentCategory === "saved") {
+        // Remove from saved, add to read
+        booklist.saved = booklist.saved.filter(bookId => bookId !== id);
+        if (!booklist.read.includes(id)) {
+            booklist.read.push(id);
+        }
+    } else if (currentCategory === "read") {
+        // Remove from read, add to saved
+        booklist.read = booklist.read.filter(bookId => bookId !== id);
+        if (!booklist.saved.includes(id)) {
+            booklist.saved.push(id);
+        }
     }
-    if (CurrentCategory == "read") {
-        addBook(id, "saved");
-        removeBook(id, "read")
-    }
+
+    setBookList(booklist);
 }
