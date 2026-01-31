@@ -1,6 +1,8 @@
 // add this to book in booklist page 
 // <a href="book.html?bookId=${book.id}"></a>
 
+import { navBar } from "./modules/nav";
+
 function getParam(param) {
     const paramString = window.location.search;
     const params = new URLSearchParams(paramString);
@@ -18,7 +20,9 @@ function getParam(param) {
             <h2>${book.title}</h2>
             <p><strong>Author(s):</strong> ${authors}</p>
             <div class="buttons">
+                <a href="../list.html" target="_blank">Back to Book List</a>
                 <a href="${link}" target="_blank">Read Book</a>
+                
             </div>
         </div>`;
   }
@@ -45,4 +49,5 @@ function getParam(param) {
     document.querySelector("#info").innerHTML = bookHTML;
   }
 
+  navBar();
   document.addEventListener("DOMContentLoaded", renderBook);

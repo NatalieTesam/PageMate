@@ -37,11 +37,11 @@ export function addBook(id, category) {
 export function removeBook(id, category) {
     const booklist = getBookList();
     if (category == "saved" & booklist.saved.includes(id)) {
-        const newList = booklist.saved.filter(item => item !== id);
+        const newList = {saved:booklist.saved.filter(item => item !== id), read:booklist.read};
         setBookList(newList);
     }
     if (category == "read" & booklist.read.includes(id)) {
-        const newList = booklist.read.filter(item => item !== id);
+        const newList = {saved:booklist.saved, read:booklist.read.filter(item => item !== id)};
         setBookList(newList);
     }
     else {
@@ -49,33 +49,15 @@ export function removeBook(id, category) {
     }
 }
 
-// export function swapLists(id, CurrentCategory) {
-//     if (CurrentCategory == "saved") {
-//         addBook(id, "read");
-//         removeBook(id, "saved");
-//     }
-//     if (CurrentCategory == "read") {
-//         addBook(id, "saved");
-//         removeBook(id, "read")
-//     }
-// }
-export function swapLists(id, currentCategory) {
-    const booklist = getBookList();
-    id = parseInt(id); // Ensure id is a number
-
-    if (currentCategory === "saved") {
-        // Remove from saved, add to read
-        booklist.saved = booklist.saved.filter(bookId => bookId !== id);
-        if (!booklist.read.includes(id)) {
-            booklist.read.push(id);
-        }
-    } else if (currentCategory === "read") {
-        // Remove from read, add to saved
-        booklist.read = booklist.read.filter(bookId => bookId !== id);
-        if (!booklist.saved.includes(id)) {
-            booklist.saved.push(id);
-        }
+export function swapLists(id, CurrentCategory) {
+    if (CurrentCategory == "saved") {
+        console.log("Swapping ", id, " from saved to read.");
+        addBook(id, "read");
+        removeBook(id, "saved");
     }
-
-    setBookList(booklist);
+    if (CurrentCategory == "read") {
+        console.log("Swapping ", id, " from read to saved.");
+        addBook(id, "saved");
+        removeBook(id, "read")
+    }
 }
